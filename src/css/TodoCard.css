@@ -1,0 +1,45 @@
+.card-container{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    background-color: #a6eaf3;
+    /* padding: 1%; */
+    text-align: center;
+}
+.card-title{
+    
+}
+.card-description{
+border: none;
+box-shadow: 2px 2px 15px 2px rgb(200, 244, 240);
+}
+.card-time-edit-section{
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+    gap: 1;
+}
+.card-time-edit-section button {
+    margin: auto;
+}
+.card-button{
+    width: 70px;
+    height: 30px;
+    background-color: #8b9de5;
+    color: #ffffff;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 1px 1px 5px 1px rgb(0,0,0);
+    font-size: 15px;
+    font-style: bold;
+
+}
+.card-button:hover {
+    background-color:#6274dc;
+    color: #ffffff;
+    transition: 0.7s;
+}
+.card-description{
+    text-overflow: ellipsis;
+}
