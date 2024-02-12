@@ -56,7 +56,7 @@
     font-size: 15px;
 }
 .display-todocard{
-    width: 30%;
-    height: 250px;
-    box-shadow: 2px 5px 15px 3px rgb(0,0,0);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
