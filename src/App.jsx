@@ -5,7 +5,6 @@ import Loader from './Components/Loader';
 
 const App = () => {
   const routes = useRoutes(routers);
-  console.log(routes)
   return <Suspense fallback={<Loader />}>{routes}</Suspense>
 }
 
