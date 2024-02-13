@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "../../css/AddTodo.css";
-import Navbar from '../../Components/Navbar';
+import Navbar from '../Navbar';
 import TextBox from '../../Components/TextBox';
 import TextInput from '../../Components/TextInput';
 import Selector from '../../Components/Selector';
@@ -46,7 +46,7 @@ const AddTodo = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar title={"Add Todo"} button={"Back"}/>
       <form className="row">
 
         <TextInput name={"title"} type={"text"} onChange={onChangeHandler} value={todo.title} label={"Title"} />
