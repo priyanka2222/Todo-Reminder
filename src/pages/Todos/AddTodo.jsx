@@ -22,7 +22,19 @@ const AddTodo = () => {
 
 const onSubmit = (e)=>{
   e.preventDefault();
-  console.log(todo)
+  const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
+
+  const updatedTodos = [...existingTodos, todo];
+  localStorage.setItem('todos', JSON.stringify(updatedTodos));
+  
+  setTodo({
+    title: "",
+    description: "",
+    priority: "",
+    startDateTime: "",
+    endDateTime: "",
+    snooze: ""
+  });
 }
 
   return (
