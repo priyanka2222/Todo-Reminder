@@ -1,0 +1,25 @@
+.display-bar{
+    display: grid;
+    grid-template-columns: 80% 5% 5%;
+    gap: 3%;
+    text-align: center;
+    background-color: #9fe2f7;
+    align-items: center;
+}
+.display-button{
+    width: 100px;
+    height: 40px;
+    background-color: #8b9de5;
+    color: #ffffff;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 1px 1px 5px 1px rgb(0,0,0);
+    font-size: 17px;
+    font-style: bold;
+
+}
+.display-button:hover {
+    background-color:#6274dc;
+    color: #ffffff;
+    transition: 0.7s;
+}
