@@ -1,5 +1,5 @@
 import React from 'react'
-import "../css/AddTodo.css";
+import "../../css/AddTodo.css";
 
 const TextInput = (props) => {
   return (

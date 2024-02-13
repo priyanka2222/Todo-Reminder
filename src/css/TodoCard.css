@@ -53,6 +53,7 @@ border: none;
     background-color:#6274dc;
     color: #ffffff;
     transition: 0.7s;
+    cursor: pointer;
 }
 .card-description{
      /* width: 350px; */
