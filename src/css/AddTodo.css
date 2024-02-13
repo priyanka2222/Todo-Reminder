@@ -5,7 +5,7 @@ form {
     background-color: #9fe2f7;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 140px;
+    margin-top: 50px;
 }
 
 .row {
@@ -37,7 +37,7 @@ select {
 
 button {
     background-color: #6274dc;
-    color: #ffffff;
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
