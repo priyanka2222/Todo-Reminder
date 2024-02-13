@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import "../../css/AddTodo.css";
-import Navbar from '../Navbar';
-import TextBox from '../../Components/TextBox';
-import TextInput from '../../Components/TextInput';
-import Selector from '../../Components/Selector';
+import Navbar from '../../Components/Navbar';
+import TextBox from '../../Components/Tags/TextBox';
+import TextInput from '../../Components/Tags/TextInput';
+import Selector from '../../Components/Tags/Selector';
 
 const AddTodo = () => {
 
@@ -27,8 +27,9 @@ const AddTodo = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
-
+    console.log("ExistingTodos : ", existingTodos)
     const updatedTodos = [...existingTodos, todo];
+    console.log("UpdatedTodos : ", updatedTodos)
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
 
     setTodo({
@@ -61,7 +62,7 @@ const AddTodo = () => {
 
         <Selector name={"snooze"} label={"Set Snooze"} value={todo.snooze} onChange={onChangeHandler} optionArr={snoozeArray} defaultValue={"Select Snooze"} />
 
-        <button onClick={onSubmit}>Submit</button>
+        <button className='addTodo-button' onClick={onSubmit}>Submit</button>
       </form>
     </>
   );

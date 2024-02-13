@@ -1,18 +1,27 @@
 import React from 'react'
 import '../../css/TodoCard.css'
 
-function TodoCard() {
+function TodoCard(data) {
+  console.log("TodoCard : ", data)
   return (
     <>
       <div className="card-container">
-        <h2 className='card-title'>Title</h2>
-        <p className='card-description'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <h2 className='card-title'>{data.title}</h2>
+        <p className='card-description'>{data.description}</p>
         <div className="card-time-section">
             <div>
-                <div>Start Time : <span>14/05/2025</span></div>
+                <div>Prority : <span>{data.priority}</span></div>
             </div>
             <div>
-                <div>End Time : <span>14/05/2025</span></div>
+                <div>Snooze : <span>{data.snooze}</span></div>
+            </div>
+        </div>
+        <div className="card-time-section">
+            <div>
+                <div>Start Time : <span>{data.startDateTime}</span></div>
+            </div>
+            <div>
+                <div>End Time : <span>{data.endDateTime}</span></div>
             </div>
         </div> 
         <div className="card-button-section">

@@ -1,16 +1,25 @@
-import React from 'react'
-import "../css/NavBar.css"
+import React from 'react';
+import { NavLink } from "react-router-dom";
+import "../css/Navbar.css"
 
-const Navbar = () => {
-    return (
-        <>
-            <div className='display-bar'>
-                <h1 style={{marginTop:10}}>Todo</h1>
-                <button >Add</button>
-                <button >Logout</button>
-            </div>
-        </>
-    )
+function Navbar(props) {
+  return (
+    <>
+      <div className='display-bar'>
+          <h1>{props.title}</h1>
+          {props.button == 'Add' ? 
+            <NavLink to='/addTodo'>
+                <button className='display-button'>{props.button}</button>
+            </NavLink> : <>
+            <NavLink to='/home'> 
+                <button className='display-button'>{props.button} </button>
+            </NavLink>
+            </>
+          } 
+          <button className='display-button'>Logout</button>
+        </div>
+    </>
+  )
 }
 
 export default Navbar

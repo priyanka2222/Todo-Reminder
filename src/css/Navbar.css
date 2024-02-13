@@ -1,6 +1,7 @@
 .display-bar{
     display: grid;
     grid-template-columns: 80% 5% 5%;
+    /* grid-template-rows: 80%; */
     gap: 3%;
     text-align: center;
     background-color: #9fe2f7;
@@ -16,7 +17,6 @@
     box-shadow: 1px 1px 5px 1px rgb(0,0,0);
     font-size: 17px;
     font-style: bold;
-
 }
 .display-button:hover {
     background-color:#6274dc;

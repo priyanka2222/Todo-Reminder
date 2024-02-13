@@ -1,3 +1,4 @@
+
 .display-button{
     width: 100px;
     height: 40px;
@@ -8,7 +9,6 @@
     box-shadow: 1px 1px 5px 1px rgb(0,0,0);
     font-size: 17px;
     font-style: bold;
-
 }
 .display-button:hover {
     background-color:#6274dc;
@@ -33,6 +33,7 @@
     width: 90%;
     height: 30px;
     border: none;
+    outline: none;
 }
 .display-search-icon{
     width: 8%;

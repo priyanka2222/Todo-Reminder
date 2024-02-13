@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../css/DisplayTodos.css";
 import searchIcon from '../../Images/search-icon.png';
 import TodoCard from './TodoCard';
-import Navbar from '../Navbar';
+import Navbar from '../../Components/Navbar';
 
 const DisplayTodos = () => {
+  let tododata =  JSON.parse(localStorage.getItem('todos'));
+  console.log("TodoData : ", tododata);;
   return (
     <>
       <div className='display-container'>
@@ -25,7 +27,10 @@ const DisplayTodos = () => {
           </div>
         </div>
         <div className='display-todocard'>
-          <TodoCard/>
+          {/* {tododata.map ((data) => {return <div>{data}</div>})} */}
+          {tododata.map ((data) => {return <TodoCard {...data}/>})}
+          
+          {/* <TodoCard /> */}
         </div>
       </div>
     </>
