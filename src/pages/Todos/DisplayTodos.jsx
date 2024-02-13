@@ -2,17 +2,14 @@ import React from 'react';
 import "../../css/DisplayTodos.css";
 import searchIcon from '../../Images/search-icon.png';
 import TodoCard from './TodoCard';
+import Navbar from '../Navbar';
 
 const DisplayTodos = () => {
   return (
     <>
       <div className='display-container'>
         {/* <h1>DisplayTodos</h1> */}
-        <div className='display-bar'>
-          <h1>Todo</h1>
-          <button className='display-button'>Add</button>
-          <button className='display-button'>Logout</button>
-        </div>
+        <Navbar title= {'Todos'} button= {'Add'}/>
         <div className='display-search-sort'>
           <div className='display-search-section'>
             <input type='text' className='display-search-bar' placeholder='Search'/>
