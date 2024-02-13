@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import "../../css/AddTodo.css";
+import Navbar from '../../Components/Navbar';
+import TextBox from '../../Components/TextBox';
+import TextInput from '../../Components/TextInput';
+import Selector from '../../Components/Selector';
 
 const AddTodo = () => {
 
@@ -20,67 +24,42 @@ const AddTodo = () => {
     })
   }
 
-const onSubmit = (e)=>{
-  e.preventDefault();
-  const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
-  const updatedTodos = [...existingTodos, todo];
-  localStorage.setItem('todos', JSON.stringify(updatedTodos));
-  
-  setTodo({
-    title: "",
-    description: "",
-    priority: "",
-    startDateTime: "",
-    endDateTime: "",
-    snooze: ""
-  });
-}
+    const updatedTodos = [...existingTodos, todo];
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+
+    setTodo({
+      title: "",
+      description: "",
+      priority: "",
+      startDateTime: "",
+      endDateTime: "",
+      snooze: ""
+    });
+  }
+
+  const priorityArr = ["Low", "Medium", "High"]
+  const snoozeArray = ["+1 times", "+2 times", "+3 times", "+4 times", "+5 times"]
 
   return (
     <>
+      <Navbar />
       <form className="row">
-        <div className="label-container">
-          <label htmlFor="title">Title</label>
-          <input type="text" name="title" onChange={onChangeHandler} value={todo.title} />
-        </div>
 
-        <div className="label-container">
-          <label htmlFor="description">Description</label>
-          <textarea type="text" name="description" rows={3} cols={6} onChange={onChangeHandler} value={todo.description}></textarea>
-        </div>
+        <TextInput name={"title"} type={"text"} onChange={onChangeHandler} value={todo.title} label={"Title"} />
 
-        <div className="label-container">
-          <label htmlFor="priority">Priority</label>
-          <select name="priority" onChange={onChangeHandler} value={todo.priority}>
-            <option value="">Select Priority</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
+        <TextBox label={"Description"} rows={3} cols={6} onChange={onChangeHandler} value={todo.description} name={"description"} />
 
-        <div className="label-container">
-          <label htmlFor="startDateTime">Start Date and Time</label>
-          <input type="datetime-local" name="startDateTime" onChange={onChangeHandler} value={todo.startDateTime} />
-        </div>
+        <Selector name={"priority"} label={"Priority"} value={todo.priority} onChange={onChangeHandler} optionArr={priorityArr} defaultValue={"Select Priority"} />
 
-        <div className="label-container">
-          <label htmlFor="endDateTime">End Date and Time</label>
-          <input type="datetime-local" name="endDateTime" onChange={onChangeHandler} value={todo.endDateTime} />
-        </div>
+        <TextInput type={"datetime-local"} name={"startDateTime"} onChange={onChangeHandler} value={todo.startDateTime} label={"Start Date and Time"} />
 
-        <div className="label-container">
-          <label htmlFor="snooze">Set Snooze</label>
-          <select name="snooze" onChange={onChangeHandler} value={todo.snooze}>
-            <option value="">Select Snooze</option>
-            <option value="+1 times">+1 times</option>
-            <option value="+2 times">+2 times</option>
-            <option value="+3 times">+3 times</option>
-            <option value="+4 times">+4 times</option>
-            <option value="+5 times">+5 times</option>
-          </select>
-        </div>
+        <TextInput type={"datetime-local"} name={"endDateTime"} onChange={onChangeHandler} value={todo.endDateTime} label={"End Date and Time"} />
+
+        <Selector name={"snooze"} label={"Set Snooze"} value={todo.snooze} onChange={onChangeHandler} optionArr={snoozeArray} defaultValue={"Select Snooze"} />
 
         <button onClick={onSubmit}>Submit</button>
       </form>
