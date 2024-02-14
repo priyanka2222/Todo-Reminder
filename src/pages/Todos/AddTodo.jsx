@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import "../../css/AddTodo.css";
 import Navbar from '../../Components/Navbar';
-import TextBox from '../../Components/TextBox';
-import TextInput from '../../Components/TextInput';
-import Selector from '../../Components/Selector';
+import TextBox from '../../Components/Tags/TextBox';
+import { TextInput } from '../../Components/Tags/TextInput';
+import Selector from '../../Components/Tags/Selector';
+import { v1 } from 'uuid';
 
 const AddTodo = () => {
-
+  const todoId = v1();
   const [todo, setTodo] = useState({
+    todoId,
     title: "",
     description: "",
     priority: "",
@@ -24,14 +26,25 @@ const AddTodo = () => {
     })
   }
 
+
   const onSubmit = (e) => {
-    e.preventDefault();
     const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
+    setTodo({
+      todoId,
+      title: todo.title,
+      description: todo.description,
+      priority: todo.priority,
+      startDateTime: todo.startDateTime,
+      endDateTime: todo.endDateTime,
+      snooze: todo.snooze
+    })
+    
     const updatedTodos = [...existingTodos, todo];
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
 
     setTodo({
+      todoId:"",
       title: "",
       description: "",
       priority: "",
@@ -47,7 +60,7 @@ const AddTodo = () => {
   return (
     <>
       <Navbar />
-      <form className="row">
+      <div className="row">
 
         <TextInput name={"title"} type={"text"} onChange={onChangeHandler} value={todo.title} label={"Title"} />
 
@@ -62,7 +75,7 @@ const AddTodo = () => {
         <Selector name={"snooze"} label={"Set Snooze"} value={todo.snooze} onChange={onChangeHandler} optionArr={snoozeArray} defaultValue={"Select Snooze"} />
 
         <button onClick={onSubmit}>Submit</button>
-      </form>
+      </div>
     </>
   );
 }
