@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { AuthInput } from '../../Components/Tags/TextInput'
 import "../../css/SignUp.css"
 import { v1 } from 'uuid'
-import {isEmptyData,isValidEmail,isValidPassword} from "../../utils/Validate"
-import { addDoc, collection, getDoc } from "firebase/firestore"
+import { isEmptyData, isValidEmail, isValidPassword } from "../../utils/Validate"
+import { addDoc, collection, where, getDoc, query } from "firebase/firestore"
 import db from '../../config/Firebase'
+import { useNavigate } from 'react-router'
 
 const SignUp = () => {
   const userID = v1();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     userID,
     nameOfUser: "",
@@ -29,12 +31,13 @@ const SignUp = () => {
       if (!isEmptyData(user.emailOfUser) && !isEmptyData(user.userNameOfUser) && !isEmptyData(user.passwordOfUser) && !isEmptyData(user.nameOfUser)) {
         if (!isValidEmail(user.emailOfUser)) {
           console.log("Please Enter valid email")
-        }else if(!isValidPassword(user.passwordOfUser)){
+        } else if (!isValidPassword(user.passwordOfUser)) {
           console.log("Please Enter valid password")
-        }else{
+        } else {
           await addDoc(collection(db, "users"), user);
+          navigate("/")
         }
-      }else{
+      } else {
         console.log("Please fill all data")
       }
     } catch (error) {
