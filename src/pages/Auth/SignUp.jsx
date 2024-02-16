@@ -6,6 +6,7 @@ import { isEmptyData, isValidEmail, isValidPassword } from "../../utils/Validate
 import { addDoc, collection, where, getDoc, query } from "firebase/firestore"
 import db from '../../config/Firebase'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
   const userID = v1();
@@ -53,6 +54,15 @@ const SignUp = () => {
         <AuthInput name={"userNameOfUser"} type={"text"} label={"User Name"} onChange={onChangeHandler} value={user.userNameOfUser} />
         <AuthInput name={"passwordOfUser"} type={"password"} label={"Password"} onChange={onChangeHandler} value={user.passwordOfUser} />
         <button onClick={SignUpUser}>Register</button>
+        <p
+          style={{ marginLeft: "8rem" }}>
+          Already Registered? &nbsp;
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "#3a30ca" }}>
+            Login Here
+          </Link>
+        </p>
       </div>
     </>
   )
