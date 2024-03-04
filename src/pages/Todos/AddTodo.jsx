@@ -59,7 +59,7 @@ const AddTodo = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar title={"Add Todo"} btn1={"Back"} btn2={"Logout"}/>
       <div className="row">
 
         <TextInput name={"title"} type={"text"} onChange={onChangeHandler} value={todo.title} label={"Title"} />
