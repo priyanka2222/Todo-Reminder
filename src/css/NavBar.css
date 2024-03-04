@@ -1,8 +1,17 @@
 .display-bar{
     display: grid;
-    grid-template-columns: 83% 5% 5%;
+    grid-template-columns: 90% 4% 5%;
     grid-template-rows: 80%;
-    gap: 3%;
+    gap: 0.3%;
+    text-align: center;
+    background-color: #9fe2f7;
+    align-items: center;
+}
+.display-bar-home{
+    display: grid;
+    grid-template-columns: 89% 5% 5%;
+    grid-template-rows: 80%;
+    gap: 0.3%;
     text-align: center;
     background-color: #9fe2f7;
     align-items: center;
@@ -11,4 +20,16 @@
 *{
     margin: 0;
     padding: 0;
+}
+
+button {
+    background-color: #6274dc;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 16px;
+    width: 100%;
 }
