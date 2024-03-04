@@ -1,0 +1,57 @@
+
+.display-button{
+    width: 100px;
+    height: 40px;
+    background-color: #8b9de5;
+    color: #ffffff;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 1px 1px 5px 1px rgb(0,0,0);
+    font-size: 17px;
+    font-style: bold;
+}
+.display-button:hover {
+    background-color:#6274dc;
+    color: #ffffff;
+    transition: 0.7s;
+    cursor: pointer;
+}
+.display-search-sort{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: center;
+    padding: 2%;
+}
+.display-search-section{
+    width: 40%;
+    padding: 0.1rem;
+    display:flex;
+    border: 3px solid rgb(47, 0, 255);
+    border-style: solid;
+    border-radius:0.4rem;
+    margin: auto;
+}
+.display-search-bar{
+    width: 90%;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+.display-search-icon{
+    width: 8%;
+}
+
+#sort{
+    width: 50%;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    font-size: 15px;
+    outline: none;
+    border: 3px solid rgb(47, 0, 255);
+}
+
+.display-todocard{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
