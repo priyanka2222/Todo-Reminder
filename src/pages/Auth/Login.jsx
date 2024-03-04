@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import "../../css/Login.css"
-import { collection, query, where, getDocs } from "firebase/firestore"
+import { collection, query, where, getDocs, doc } from "firebase/firestore"
 import { isEmptyData, isValidEmail } from '../../utils/Validate'
 import db from '../../config/Firebase'
 import { AuthInput } from '../../Components/Tags/TextInput'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,6 +14,11 @@ const Login = () => {
     emailOrUserName: "",
     passwordOfUser: ""
   })
+
+  useEffect(() => {
+    localStorage.getItem("userName") ? navigate("/home") : ""
+  }, [])
+
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -28,8 +34,11 @@ const Login = () => {
         if (isValidEmail(user.emailOrUserName)) {
           const loginQuery = query(collection(db, "users"), where("emailOfUser", "==", user.emailOrUserName), where("passwordOfUser", "==", user.passwordOfUser))
           const loginSnapShot = await getDocs(loginQuery);
-
+          loginSnapShot.forEach((doc) => {
+            localStorage.setItem("userName", doc.data().userNameOfUser)
+          })
           if (loginSnapShot.docs.length !== 0) {
+
             navigate("/home")
           } else {
             console.log("Invalid Credentials !!!")
@@ -37,7 +46,9 @@ const Login = () => {
         } else {
           const loginQuery = query(collection(db, "users"), where("userNameOfUser", "==", user.emailOrUserName), where("passwordOfUser", "==", user.passwordOfUser))
           const loginSnapShot = await getDocs(loginQuery);
-
+          loginSnapShot.forEach((doc) => {
+            localStorage.setItem("userName", doc.data().userNameOfUser)
+          })
           if (loginSnapShot.docs.length !== 0) {
             navigate("/home")
           } else {
